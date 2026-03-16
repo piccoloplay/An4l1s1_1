@@ -5,7 +5,7 @@ const LESSON_DATA = {
     file:  'data_esercizi_ripasso.js',
     num:   'ESERCIZI',
     title: 'Esercizi di ripasso',
-    sub:   'Trigonometria: valori notevoli · identità · equazioni · Logaritmi: proprietà · equazioni · disequazioni · limiti'
+    sub:   'Trigonometria: valori notevoli · identità · formule · equazioni · Logaritmi: proprietà · equazioni · disequazioni'
   },
 
   sections: [
@@ -286,80 +286,6 @@ const LESSON_DATA = {
       $$x < 3$$
       <div class="sl">// Interseco con c.e. x > -1:</div>
       $$x \\in (-1, 3)$$
-    </div>
-  </div>
-</div>
-</div>`
-    },
-
-    // ── §05 ──────────────────────────────────────────────────────────
-    {
-      id:       's05',
-      secNum:   '§05',
-      navLabel: '§05 Limiti con log ed exp',
-      heading:  'Limiti con logaritmi ed esponenziali',
-      html: `
-<div class="fade">
-<div class="ex">
-  <div class="ex-hdr"><span>ES 18 — Limite notevole con log</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
-  <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{\\ln(1+5x)}{3x}$.</p></div>
-    <div class="ex-sol">
-      <div class="sl">// Riconduce a lim_{t→0} ln(1+t)/t = 1 con t=5x</div>
-      $$\\lim_{x\\to 0}\\frac{\\ln(1+5x)}{3x} = \\frac{5}{3}\\lim_{x\\to 0}\\frac{\\ln(1+5x)}{5x} = \\frac{5}{3}\\cdot 1 = \\frac{5}{3}$$
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="fade">
-<div class="ex">
-  <div class="ex-hdr"><span>ES 19 — Limite notevole con esponenziale</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
-  <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{e^{3x}-1}{\\sin x}$.</p></div>
-    <div class="ex-sol">
-      <div class="sl">// Moltiplica e dividi strategicamente</div>
-      $$\\lim_{x\\to 0}\\frac{e^{3x}-1}{\\sin x} = \\lim_{x\\to 0}\\frac{e^{3x}-1}{3x}\\cdot\\frac{3x}{\\sin x} = 1\\cdot 3 = 3$$
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="fade">
-<div class="ex">
-  <div class="ex-hdr"><span>ES 20 — Limite con gerarchia degli infiniti</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
-  <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to+\\infty}\\frac{\\ln x}{\\sqrt{x}}$.</p></div>
-    <div class="ex-sol">
-      <div class="sl">// ln x cresce più lentamente di qualsiasi potenza di x</div>
-      <div class="sl">// Più formalmente: L'Hospital (forma ∞/∞)</div>
-      $$\\lim_{x\\to+\\infty}\\frac{\\ln x}{\\sqrt{x}} = \\lim_{x\\to+\\infty}\\frac{1/x}{1/(2\\sqrt{x})} = \\lim_{x\\to+\\infty}\\frac{2\\sqrt{x}}{x} = \\lim_{x\\to+\\infty}\\frac{2}{\\sqrt{x}} = 0$$
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="fade">
-<div class="ex">
-  <div class="ex-hdr"><span>ES 21 — Limite della forma $1^\\infty$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
-  <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to+\\infty}\\left(1+\\frac{3}{x}\\right)^x$.</p></div>
-    <div class="ex-sol">
-      <div class="sl">// Riconduce al limite notevole (1+1/t)^t = e con t = x/3</div>
-      $$\\left(1+\\frac{3}{x}\\right)^x = \\left[\\left(1+\\frac{1}{x/3}\\right)^{x/3}\\right]^3 \\to e^3$$
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="fade">
-<div class="ex">
-  <div class="ex-hdr"><span>ES 22 — Limite con log e polinomio</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
-  <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 1}\\frac{\\ln x}{x-1}$.</p></div>
-    <div class="ex-sol">
-      <div class="sl">// Forma 0/0. Poni t = x-1, quindi x = 1+t e t→0:</div>
-      $$\\lim_{t\\to 0}\\frac{\\ln(1+t)}{t} = 1$$
     </div>
   </div>
 </div>
