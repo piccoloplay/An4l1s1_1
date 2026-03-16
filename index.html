@@ -283,5 +283,95 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
+
+<!-- FOOTER PRIVACY -->
+<style>
+.footer-privacy{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--ink);border-top:1px solid #333;
+  padding:.6rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  z-index:500;
+}
+.footer-privacy span{
+  font-family:'Fira Code',monospace;font-size:.62rem;
+  color:#888;line-height:1.5;
+}
+.footer-privacy a{
+  font-family:'Fira Code',monospace;font-size:.62rem;
+  color:#888;text-decoration:underline;cursor:pointer;
+  background:none;border:none;padding:0;
+}
+.footer-privacy a:hover{color:var(--yellow);}
+
+/* MODAL PRIVACY */
+#privacy-modal{
+  display:none;
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:10000;align-items:center;justify-content:center;
+}
+#privacy-modal.open{display:flex;}
+.privacy-box{
+  background:#fafaf7;border:3px solid var(--ink);
+  box-shadow:8px 8px 0 #1a1a2e;
+  padding:2.2rem 2.5rem;width:100%;max-width:540px;
+  max-height:80vh;overflow-y:auto;
+  position:relative;
+}
+.privacy-box h2{
+  font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:700;
+  margin-bottom:1.2rem;
+}
+.privacy-box h3{
+  font-family:'Fira Code',monospace;font-size:.72rem;font-weight:600;
+  letter-spacing:.08em;margin:1.2rem 0 .4rem;color:#1a1a2e;
+}
+.privacy-box p{
+  font-size:.88rem;line-height:1.7;color:#333;margin-bottom:.6rem;
+}
+.privacy-close{
+  position:absolute;top:1rem;right:1.2rem;
+  background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888;
+}
+.privacy-close:hover{color:#1a1a2e;}
+</style>
+
+<div class="footer-privacy">
+  <span>© 2026 — Materiale didattico ad uso interno scolastico.</span>
+  <span>
+    <a onclick="document.getElementById('privacy-modal').classList.add('open')">Privacy &amp; Cookie</a>
+  </span>
+</div>
+
+<!-- MODAL -->
+<div id="privacy-modal">
+  <div class="privacy-box">
+    <button class="privacy-close" onclick="document.getElementById('privacy-modal').classList.remove('open')">✕</button>
+    <h2>Privacy &amp; Cookie</h2>
+
+    <h3>TITOLARE</h3>
+    <p>Il presente sito è gestito da un docente a titolo personale per finalità didattiche interne. Non è associato ad alcuna entità commerciale.</p>
+
+    <h3>DATI PERSONALI</h3>
+    <p>Questo sito <strong>non raccoglie, non tratta e non trasmette alcun dato personale</strong>. Non sono presenti moduli di registrazione, sistemi di analisi o strumenti di tracciamento.</p>
+
+    <h3>COOKIE E STORAGE</h3>
+    <p>Il sito non utilizza cookie. L'unico dato memorizzato è una variabile di sessione (<code>sessionStorage</code>) che registra esclusivamente lo stato di accesso (loggato / non loggato). Questa informazione è salvata localmente nel browser dell'utente, non viene trasmessa ad alcun server, e viene eliminata automaticamente alla chiusura del browser.</p>
+
+    <h3>SERVIZI ESTERNI</h3>
+    <p>Il sito carica risorse esterne necessarie al funzionamento:</p>
+    <p>— <strong>Google Fonts</strong> (fonts.googleapis.com): font tipografici. Google può ricevere l'indirizzo IP del dispositivo al momento del caricamento. Informativa: <a href="https://policies.google.com/privacy" target="_blank" style="color:#1a5fc8">policies.google.com/privacy</a>.</p>
+    <p>— <strong>MathJax</strong> (cdn.jsdelivr.net): rendering delle formule matematiche. jsDelivr è una CDN pubblica; informativa: <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-com" target="_blank" style="color:#1a5fc8">jsdelivr.com/privacy</a>.</p>
+    <p>Entrambi i servizi sono utilizzati esclusivamente per finalità tecniche e non per profilazione.</p>
+
+    <h3>BASE GIURIDICA</h3>
+    <p>Non essendo raccolti dati personali, non è richiesto consenso ai sensi del Regolamento UE 2016/679 (GDPR). Il sito è conforme alle disposizioni del GDPR in quanto non svolge alcun trattamento di dati personali.</p>
+
+    <h3>CONTATTO</h3>
+    <p>Per qualsiasi informazione è possibile rivolgersi direttamente al docente tramite i canali scolastici ufficiali.</p>
+  </div>
+</div>
+
 </body>
 </html>
