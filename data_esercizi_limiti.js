@@ -2,7 +2,7 @@
 const LESSON_DATA = {
 
   meta: {
-    file:  'esercizi_limiti.html',
+    file:  'data_esercizi_limiti.js',
     num:   'ESERCIZI',
     title: 'Limiti di successioni<br>numeriche e di funzioni',
     sub:   'Esercizi svolti · difficoltà crescente'
@@ -124,22 +124,22 @@ const LESSON_DATA = {
 </div>`
     },
 
+    
     // ── §02 ──────────────────────────────────────────────────────────
     {
       id:       's02',
       secNum:   '§02',
-      navLabel: '§02 Limiti di succ. di funzioni',
-      heading:  'Limiti di successioni di funzioni',
+      navLabel: '§02 Limiti di funzioni',
+      heading:  'Limiti di funzioni',
       html: `
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 9 — Limite puntuale base</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 9 — Forma $0/0$ con fattorizzazione</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = \\dfrac{x^2}{n}$, per ogni $x \\in \\mathbb{R}$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 2}\\frac{x^2 - 4}{x - 2}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per ogni x fissato, x² è una costante rispetto a n</div>
-      $$\\lim_{n\\to\\infty} \\frac{x^2}{n} = x^2 \\cdot \\lim_{n\\to\\infty} \\frac{1}{n} = x^2 \\cdot 0 = 0$$
-      $$f(x) = 0 \\quad \\forall\\, x \\in \\mathbb{R}$$
+      <div class="sl">// Forma 0/0. Fattorizza il numeratore</div>
+      $$\\frac{x^2-4}{x-2} = \\frac{(x-2)(x+2)}{x-2} = x+2 \\xrightarrow{x\\to 2} 4$$
     </div>
   </div>
 </div>
@@ -147,13 +147,12 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 10 — Limite puntuale con parametro</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 10 — Forma $0/0$ con coniugato</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = \\dfrac{nx}{n+1}$, per ogni $x \\in \\mathbb{R}$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{\\sqrt{1+x}-1}{x}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Raccogli n al denominatore, x è una costante rispetto a n</div>
-      $$\\frac{nx}{n+1} = x \\cdot \\frac{n}{n+1} = x \\cdot \\frac{1}{1+1/n} \\to x \\cdot 1 = x$$
-      $$f(x) = x \\quad \\forall\\, x \\in \\mathbb{R}$$
+      <div class="sl">// Moltiplica per il coniugato</div>
+      $$\\frac{\\sqrt{1+x}-1}{x} \\cdot \\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1} = \\frac{(1+x)-1}{x(\\sqrt{1+x}+1)} = \\frac{1}{\\sqrt{1+x}+1} \\to \\frac{1}{2}$$
     </div>
   </div>
 </div>
@@ -161,14 +160,12 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 11 — Limite con esponenziale</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 11 — Limite notevole $\\sin x / x$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = x^n$ su $[0,1]$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin(3x)}{x}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Tratta x come la ragione di una successione geometrica r^n con r = x</div>
-      <div class="sl">// Se x ∈ [0,1): x < 1, quindi x^n → 0 (come r^n con |r| < 1)</div>
-      <div class="sl">// Se x = 1: 1^n = 1 per ogni n, quindi il limite è 1</div>
-      $$f(x) = \\lim_{n\\to\\infty} x^n = \\begin{cases} 0 & x \\in [0,1) \\\\ 1 & x = 1 \\end{cases}$$
+      <div class="sl">// Riconduce al limite notevole sin(t)/t → 1 con t = 3x</div>
+      $$\\frac{\\sin(3x)}{x} = 3\\cdot\\frac{\\sin(3x)}{3x} \\to 3 \\cdot 1 = 3$$
     </div>
   </div>
 </div>
@@ -176,13 +173,13 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 12 — Limite con sin e carabinieri</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 12 — Limite notevole con $1-\\cos x$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = \\dfrac{\\sin(nx)}{n}$, per ogni $x \\in \\mathbb{R}$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per ogni x fissato: |sin(nx)| ≤ 1, quindi usa i carabinieri</div>
-      $$-\\frac{1}{n} \\leq \\frac{\\sin(nx)}{n} \\leq \\frac{1}{n} \\xrightarrow{n\\to\\infty} 0$$
-      $$f(x) = 0 \\quad \\forall\\, x \\in \\mathbb{R}$$
+      <div class="sl">// Limite notevole: (1-cos x)/x² → 1/2</div>
+      $$\\frac{1-\\cos x}{x^2} \\to \\frac{1}{2}$$
+      <div class="sl">// Si dimostra con Taylor: cos x = 1 - x²/2 + o(x²), quindi 1-cos x = x²/2 + o(x²)</div>
     </div>
   </div>
 </div>
@@ -190,13 +187,12 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 13 — Limite con $e^{-nx}$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 13 — Limite all'infinito di funzione razionale</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = e^{-nx}$, per ogni $x \\in [0, +\\infty)$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to+\\infty}\\frac{2x^3 - x + 5}{x^3 + 4x^2}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per x = 0: e^{-n·0} = e^0 = 1 per ogni n → limite = 1</div>
-      <div class="sl">// Per x > 0: l'esponente -nx → -∞, quindi e^{-nx} → 0</div>
-      $$f(x) = \\lim_{n\\to\\infty} e^{-nx} = \\begin{cases} 1 & x = 0 \\\\ 0 & x > 0 \\end{cases}$$
+      <div class="sl">// Dividi numeratore e denominatore per x³</div>
+      $$\\frac{2x^3-x+5}{x^3+4x^2} = \\frac{2 - 1/x^2 + 5/x^3}{1 + 4/x} \\to \\frac{2}{1} = 2$$
     </div>
   </div>
 </div>
@@ -204,14 +200,12 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 14 — Limite con frazione in $x$ e $n$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 14 — Limite con $\\ln$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = \\dfrac{nx}{1+nx}$, per ogni $x \\in [0, +\\infty)$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0^+} x\\ln x$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per x = 0: 0/(1+0) = 0 per ogni n → limite = 0</div>
-      <div class="sl">// Per x > 0: raccogli nx al denominatore</div>
-      $$\\frac{nx}{1+nx} = \\frac{1}{\\dfrac{1}{nx}+1} \\xrightarrow{n\\to\\infty} \\frac{1}{0+1} = 1$$
-      $$f(x) = \\begin{cases} 0 & x = 0 \\\\ 1 & x > 0 \\end{cases}$$
+      <div class="sl">// Forma 0·(-∞). Riscrivi come rapporto e applica L'Hospital</div>
+      $$x\\ln x = \\frac{\\ln x}{1/x} \\xrightarrow{\\text{L'H}} \\frac{1/x}{-1/x^2} = \\frac{-x^2}{x} = -x \\to 0$$
     </div>
   </div>
 </div>
@@ -219,14 +213,13 @@ const LESSON_DATA = {
 
 <div class="fade">
 <div class="ex">
-  <div class="ex-hdr"><span>ES 15 — Limite con due variabili in competizione</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 15 — Limite con $e^x$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{n\\to\\infty} f_n(x)$ dove $f_n(x) = \\dfrac{x^2 + nx}{n + 1}$, per ogni $x \\in \\mathbb{R}$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to+\\infty}\\frac{e^x}{x^2}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Dividi numeratore e denominatore per n</div>
-      $$\\frac{x^2+nx}{n+1} = \\frac{x^2/n + x}{1 + 1/n} \\to \\frac{0 + x}{1 + 0} = x$$
-      $$f(x) = x \\quad \\forall\\, x \\in \\mathbb{R}$$
-      <div class="sl">// Il termine x²/n → 0 perché x² è costante rispetto a n</div>
+      <div class="sl">// Forma ∞/∞. L'Hospital due volte</div>
+      $$\\frac{e^x}{x^2} \\xrightarrow{\\text{L'H}} \\frac{e^x}{2x} \\xrightarrow{\\text{L'H}} \\frac{e^x}{2} \\to +\\infty$$
+      <div class="sl">// L'esponenziale domina qualsiasi potenza</div>
     </div>
   </div>
 </div>
