@@ -272,261 +272,182 @@ const LESSON_DATA = {
 </div>`
     },
 
-    // ── §04 ──────────────────────────────────────────────────────────
-    {
-      id:       's03',
-      secNum:   '§04',
-      navLabel: '§04 Successioni di funzioni',
-      heading:  'Successioni di funzioni',
-      html: `
-<div class="fade">
-<div class="box def">
-  <div class="box-label">DEFINIZIONE</div>
-  <div class="box-title">Successione di funzioni</div>
-  <p>Una <strong>successione di funzioni</strong> è una famiglia $\\{f_n\\}_{n \\in \\mathbb{N}}$ in cui ogni termine $f_n$ è una funzione $f_n : E \\subseteq \\mathbb{R} \\to \\mathbb{R}$.</p>
-  <p>La differenza fondamentale con le successioni numeriche: il termine $f_n$ non è un numero, ma un'intera funzione. Fissato un punto $x \\in E$, la mappa $n \\mapsto f_n(x)$ è una ordinaria successione numerica.</p>
-</div>
-</div>
-
-<div class="fade">
-<div class="box prop">
-  <div class="box-label">ESEMPIO FONDAMENTALE</div>
-  <div class="box-title">$f_n(x) = x^n$ su $[0,1]$</div>
-  <p>Per ogni $x \\in [0,1]$ fissato, $f_n(x) = x^n$ è una successione numerica:</p>
-  <p>— Se $x = 0{,}7$: la successione $0{,}7^n$ si avvicina a $0$ (come $r^n$ con $r < 1$).</p>
-  <p>— Se $x = 0{,}99$: la successione $0{,}99^n$ si avvicina a $0$, ma molto lentamente.</p>
-  <p>— Se $x = 1$: la successione $1^n = 1$ è costante, quindi vale $1$ per ogni $n$.</p>
-  <p>La successione di funzioni «contiene» infinite successioni numeriche, una per ogni $x \\in [0,1]$.</p>
-</div>
-</div>
-
-<div class="fade">
-<div class="tbl">
-<table>
-  <thead><tr><th></th><th>Successione numerica $(a_n)$</th><th>Successione di funzioni $(f_n)$</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Termine $n$-esimo</strong></td><td>Un numero $a_n \\in \\mathbb{R}$</td><td>Una funzione $f_n : E \\to \\mathbb{R}$</td></tr>
-    <tr><td><strong>Limite</strong></td><td>Un numero $L \\in \\mathbb{R}$</td><td>Una funzione $f : E \\to \\mathbb{R}$</td></tr>
-    <tr><td><strong>Quanti «oggetti» da seguire</strong></td><td>Uno solo</td><td>Uno per ogni $x \\in E$</td></tr>
-    <tr><td><strong>Il limite può essere discontinuo?</strong></td><td>Non ha senso (è un numero)</td><td>Sì, se la convergenza è debole</td></tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-<div class="fade">
-<div class="box prop">
-  <div class="box-label">ALTRI ESEMPI</div>
-  <div class="box-title">Successioni di funzioni tipiche</div>
-  <p>$f_n(x) = \\dfrac{x}{n}$ &nbsp;→&nbsp; per ogni $x$ fissato, $x/n \\to 0$: il limite è $f \\equiv 0$.</p>
-  <p>$f_n(x) = \\dfrac{nx}{1+nx}$ su $[0,+\\infty)$ &nbsp;→&nbsp; per $x=0$ vale $0$, per $x > 0$ vale $\\to 1$: il limite ha un salto.</p>
-  <p>$f_n(x) = \\dfrac{\\sin(nx)}{n}$ &nbsp;→&nbsp; per ogni $x$, $|\\sin(nx)/n| \\leq 1/n \\to 0$: il limite è $f \\equiv 0$.</p>
-</div>
-</div>
-
-<div class="vf fade">
-  <div class="vf-hdr"><span>VERO O FALSO — Successioni di funzioni</span><span class="vfscore" id="vfs03">0/4</span></div>
-  <div class="vf-body">
-    <div class="vq" data-ok="V" data-why="Per ogni x fissato, n ↦ f_n(x) è una successione di numeri reali: si applicano tutti i teoremi sulle successioni numeriche.">
-      <div class="vq-text">1. Per ogni $x$ fissato, $(f_n(x))$ è una ordinaria successione numerica.</div>
-      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
-    </div>
-    <div class="vq" data-ok="F" data-why="Falso: il limite di una successione di funzioni è una funzione, non un numero.">
-      <div class="vq-text">2. Il limite di una successione di funzioni è sempre un numero reale.</div>
-      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
-    </div>
-    <div class="vq" data-ok="V" data-why="f_n(x) = x^n: per x in [0,1) si ha x^n → 0 come r^n con r = x < 1. Per x = 1 si ha 1^n = 1.">
-      <div class="vq-text">3. Per $f_n(x) = x^n$, fissato $x = 0{,}8$, la successione $f_n(0{,}8) = 0{,}8^n$ converge a $0$.</div>
-      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
-    </div>
-    <div class="vq" data-ok="F" data-why="Falso: una successione di funzioni contiene infinite successioni numeriche (una per ogni x), non una sola.">
-      <div class="vq-text">4. Una successione di funzioni è equivalente a una singola successione numerica.</div>
-      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
-    </div>
-  </div>
-  <div class="vf-foot"><button class="vf-reset" onclick="resetVF(this)">Ricomincia</button><span class="vf-info" id="vfi03"></span></div>
-</div>`
-    },
 
     // ── §04 ──────────────────────────────────────────────────────────
     {
       id:       's04',
-      secNum:   '§05',
-      navLabel: '§05 Limiti di successioni di funzioni',
-      heading:  'Limiti di successioni di funzioni',
+      secNum:   '§04',
+      navLabel: '§04 Da successioni a funzioni',
+      heading:  'Da successioni a funzioni: cosa cambia',
       html: `
 <div class="fade">
-<div class="box def">
-  <div class="box-label">DEFINIZIONE</div>
-  <div class="box-title">Convergenza puntuale</div>
-  <p>$(f_n)$ converge <strong>puntualmente</strong> a $f$ su $E$ se, per ogni singolo punto $x \\in E$, la successione numerica $f_n(x)$ converge a $f(x)$:</p>
-  $$\\forall\\, x \\in E, \\quad \\lim_{n \\to \\infty} f_n(x) = f(x)$$
-  <p>In termini epsilon-N: per ogni $x$ e ogni $\\varepsilon > 0$, esiste $N = N(\\varepsilon, x)$ tale che $n \\geq N \\implies |f_n(x) - f(x)| < \\varepsilon$. L'indice $N$ può dipendere sia da $\\varepsilon$ che da $x$.</p>
+<div class="box prop">
+  <div class="box-label">IL SALTO</div>
+  <div class="box-title">Da $\\mathbb{N}$ a $\\mathbb{R}$: una differenza fondamentale</div>
+  <p>Nelle successioni numeriche la variabile $n$ è un intero che cresce verso $+\\infty$: c'è un solo modo di andare a infinito.</p>
+  <p>Nelle funzioni reali $f : A \\subseteq \\mathbb{R} \\to \\mathbb{R}$ la variabile $x$ è continua e può avvicinarsi a un punto $x_0$ da sinistra, da destra, oppure tendere a $\\pm\\infty$. Questo rende la nozione di limite molto più ricca.</p>
 </div>
 </div>
 
 <div class="fade">
 <div class="box def">
   <div class="box-label">DEFINIZIONE</div>
-  <div class="box-title">Convergenza uniforme</div>
-  <p>$(f_n)$ converge <strong>uniformemente</strong> a $f$ su $E$ se esiste un unico $N$, valido per tutti i punti simultaneamente:</p>
-  $$\\forall\\, \\varepsilon > 0,\\; \\exists\\, N = N(\\varepsilon) : n \\geq N \\implies |f_n(x) - f(x)| < \\varepsilon \\quad \\forall\\, x \\in E$$
-  <p>$N$ dipende solo da $\\varepsilon$, non da $x$. È la stessa struttura della convergenza numerica, estesa a funzioni.</p>
+  <div class="box-title">Limite di funzione per $x \\to x_0$</div>
+  <p>$\\displaystyle\\lim_{x \\to x_0} f(x) = L$ significa: per ogni $\\varepsilon > 0$ esiste $\\delta > 0$ tale che</p>
+  $$0 < |x - x_0| < \\delta \\implies |f(x) - L| < \\varepsilon$$
+  <p>La differenza chiave con le successioni: $x$ si avvicina a $x_0$ in modo <strong>continuo</strong>, e $x_0$ non deve appartenere al dominio di $f$. Il limite descrive il comportamento <em>vicino</em> a $x_0$, non <em>in</em> $x_0$.</p>
 </div>
 </div>
 
 <div class="fade">
 <div class="box prop">
-  <div class="box-label">ESEMPIO</div>
-  <div class="box-title">$f_n(x) = x^n$ su $[0,1]$: limite puntuale</div>
-  <p>Per ogni $x \\in [0,1)$: $x^n \\to 0$ (come $r^n$ con $r = x < 1$). Per $x = 1$: $1^n = 1$ per ogni $n$, quindi $f_n(1) \\to 1$. Il limite puntuale è:</p>
-  $$f(x) = \\begin{cases} 0 & x \\in [0,1) \\\\ 1 & x = 1 \\end{cases}$$
-  <p>Ogni $f_n$ è continua su $[0,1]$, ma la funzione limite $f$ ha un salto in $x = 1$: è discontinua. La convergenza puntuale non ha preservato la continuità.</p>
+  <div class="box-label">CONFRONTO</div>
+  <div class="box-title">Successioni vs funzioni</div>
+  <div class="tbl">
+  <table>
+    <thead><tr><th></th><th>Successione $(a_n)$</th><th>Funzione $f(x)$</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Variabile</strong></td><td>$n \\in \\mathbb{N}$, discreta</td><td>$x \\in \\mathbb{R}$, continua</td></tr>
+      <tr><td><strong>Limite</strong></td><td>$n \\to +\\infty$ (un solo modo)</td><td>$x \\to x_0$, $x \\to \\pm\\infty$, da destra/sinistra</td></tr>
+      <tr><td><strong>Condizione</strong></td><td>$|a_n - L| < \\varepsilon$ per $n \\geq N$</td><td>$|f(x)-L| < \\varepsilon$ per $0<|x-x_0|<\\delta$</td></tr>
+      <tr><td><strong>Collegamento</strong></td><td colspan="2">$\\lim_{x\\to x_0}f(x)=L \\iff$ per ogni $x_n\\to x_0$ si ha $f(x_n)\\to L$</td></tr>
+    </tbody>
+  </table>
+  </div>
 </div>
 </div>
 
 <div class="fade">
-<div class="box thm">
-  <div class="box-label">TEOREMA</div>
-  <div class="box-title">Criterio del sup</div>
-  <p>$f_n \\to f$ uniformemente su $E$ se e solo se la distanza massima tra $f_n$ e $f$ tende a zero:</p>
-  $$\\sup_{x \\in E} |f_n(x) - f(x)| \\xrightarrow{n \\to \\infty} 0$$
-  <p>Per la non-uniformità: basta trovare una sequenza di punti $x_n \\in E$ per cui $|f_n(x_n) - f(x_n)|$ non tende a zero.</p>
-</div>
-</div>
-
-<div class="fade">
-<div class="box thm">
-  <div class="box-label">TEOREMA</div>
-  <div class="box-title">Limite uniforme di funzioni continue</div>
-  <p>Se $f_n : E \\to \\mathbb{R}$ sono continue su $E$ e $f_n \\to f$ <strong>uniformemente</strong> su $E$, allora $f$ è continua su $E$.</p>
-  <p>Con la sola convergenza puntuale questo è falso: $f_n(x) = x^n$ ne è il controesempio.</p>
-</div>
-</div>
-
-<div class="fade">
-<div class="tbl">
-<table>
-  <thead><tr><th></th><th>Convergenza puntuale</th><th>Convergenza uniforme</th></tr></thead>
-  <tbody>
-    <tr><td><strong>$N$ dipende da</strong></td><td>$\\varepsilon$ e $x$</td><td>solo $\\varepsilon$</td></tr>
-    <tr><td><strong>Implica l'altra?</strong></td><td>No</td><td>Sì</td></tr>
-    <tr><td><strong>Preserva continuità</strong></td><td>No</td><td>Sì</td></tr>
-    <tr><td><strong>Criterio pratico</strong></td><td>$\\lim_n f_n(x)$ per ogni $x$</td><td>$\\sup_x |f_n - f| \\to 0$</td></tr>
-  </tbody>
-</table>
+<div class="box prop">
+  <div class="box-label">FORME INDETERMINATE</div>
+  <div class="box-title">Casi in cui il limite non è immediato</div>
+  <p>Come per le successioni, anche per le funzioni esistono forme indeterminate: $\\dfrac{0}{0}$, $\\dfrac{\\infty}{\\infty}$, $0 \\cdot \\infty$, $\\infty - \\infty$, $1^\\infty$, $0^0$, $\\infty^0$.</p>
+  <p>Per risolverle si usano: manipolazioni algebriche, limiti notevoli, regola di L'Hospital, sviluppi di Taylor.</p>
 </div>
 </div>
 
 <div class="vf fade">
-  <div class="vf-hdr"><span>VERO O FALSO — Limiti di successioni di funzioni</span><span class="vfscore" id="vfs04">0/5</span></div>
+  <div class="vf-hdr"><span>VERO O FALSO — Da successioni a funzioni</span><span class="vfscore" id="vfs04">0/4</span></div>
   <div class="vf-body">
-    <div class="vq" data-ok="V" data-why="La convergenza uniforme implica quella puntuale: se N non dipende da x, vale in particolare per ogni x fissato.">
-      <div class="vq-text">1. La convergenza uniforme implica quella puntuale.</div>
+    <div class="vq" data-ok="F" data-why="Falso: il limite di f(x) per x→x₀ non richiede che f sia definita in x₀. Descrive il comportamento vicino a x₀, non in x₀.">
+      <div class="vq-text">1. Per calcolare $\\lim_{x\\to x_0} f(x)$ è necessario che $f$ sia definita in $x_0$.</div>
       <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
     </div>
-    <div class="vq" data-ok="F" data-why="Falso: f_n(x) = x^n converge puntualmente su [0,1] ma il limite è discontinuo in x=1, quindi non può essere uniforme.">
-      <div class="vq-text">2. La convergenza puntuale implica quella uniforme.</div>
+    <div class="vq" data-ok="V" data-why="Caratterizzazione sequenziale: lim f(x)=L ↔ per ogni successione x_n→x₀ si ha f(x_n)→L. Questo collega i due concetti.">
+      <div class="vq-text">2. $\\lim_{x\\to x_0} f(x) = L$ se e solo se per ogni successione $x_n \\to x_0$ si ha $f(x_n) \\to L$.</div>
       <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
     </div>
-    <div class="vq" data-ok="F" data-why="Falso: f_n(x) = x^n ha tutte le f_n continue, ma il limite puntuale è discontinuo in x=1. Serve la convergenza uniforme.">
-      <div class="vq-text">3. Il limite puntuale di funzioni continue è sempre continuo.</div>
+    <div class="vq" data-ok="V" data-why="Per le funzioni reali x può avvicinarsi a x₀ da sinistra, da destra, o tendere a ±∞: molti più modi rispetto alle successioni dove n va solo a +∞.">
+      <div class="vq-text">3. Per le funzioni reali esistono più tipi di limite rispetto alle successioni numeriche.</div>
       <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
     </div>
-    <div class="vq" data-ok="V" data-why="È il criterio del sup: la convergenza uniforme equivale a sup_x |f_n(x) - f(x)| → 0.">
-      <div class="vq-text">4. $f_n \\to f$ uniformemente $\\iff$ $\\sup_{x} |f_n(x) - f(x)| \\to 0$.</div>
-      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
-    </div>
-    <div class="vq" data-ok="V" data-why="Il limite uniforme di funzioni continue è continuo: è il teorema che distingue la convergenza uniforme da quella puntuale.">
-      <div class="vq-text">5. Il limite uniforme di funzioni continue è sempre continuo.</div>
+    <div class="vq" data-ok="F" data-why="Falso: 0/0 è una forma indeterminata anche per le funzioni. Serve analisi ulteriore (L'Hospital, Taylor, manipolazioni algebriche).">
+      <div class="vq-text">4. Se $\\lim_{x\\to x_0} f(x) = 0$ e $\\lim_{x\\to x_0} g(x) = 0$, allora $\\lim_{x\\to x_0} f(x)/g(x) = 1$.</div>
       <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
     </div>
   </div>
   <div class="vf-foot"><button class="vf-reset" onclick="resetVF(this)">Ricomincia</button><span class="vf-info" id="vfi04"></span></div>
+</div>`
+    },
+
+    // ── §05 ──────────────────────────────────────────────────────────
+    {
+      id:       's05',
+      secNum:   '§05',
+      navLabel: '§05 Limiti notevoli di funzioni',
+      heading:  'Limiti notevoli di funzioni',
+      html: `
+<div class="fade">
+<div class="box prop">
+  <div class="box-label">LIMITI NOTEVOLI</div>
+  <div class="box-title">Da memorizzare</div>
+  <p><strong>Trigonometrici:</strong></p>
+  $$\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1 \\qquad \\lim_{x\\to 0}\\frac{1-\\cos x}{x^2} = \\frac{1}{2} \\qquad \\lim_{x\\to 0}\\frac{\\tan x}{x} = 1$$
+  <p><strong>Esponenziali e logaritmici:</strong></p>
+  $$\\lim_{x\\to 0}\\frac{e^x-1}{x} = 1 \\qquad \\lim_{x\\to 0}\\frac{\\ln(1+x)}{x} = 1 \\qquad \\lim_{x\\to 0}(1+x)^{1/x} = e$$
+  <p><strong>Potenze:</strong></p>
+  $$\\lim_{x\\to 0}\\frac{(1+x)^\\alpha - 1}{x} = \\alpha \\qquad \\lim_{x\\to+\\infty}\\left(1+\\frac{1}{x}\\right)^x = e$$
+  <p><strong>Gerarchia degli infiniti</strong> per $x\\to+\\infty$:</p>
+  $$\\ln x \\ll x^\\alpha \\ll a^x \\ll x^x \\qquad (\\alpha>0,\\; a>1)$$
+</div>
+</div>
+
+<div class="fade">
+<div class="box prop">
+  <div class="box-label">COME USARLI</div>
+  <div class="box-title">Ricondurre alla forma standard</div>
+  <p>I limiti notevoli valgono con argomento che tende a $0$ (o a $\\infty$ nelle forme con $1/x$). Per applicarli con argomenti diversi si usa la sostituzione.</p>
+  <p>Esempio: $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin(3x)}{x}$. Non è nella forma standard, ma:</p>
+  $$\\frac{\\sin(3x)}{x} = 3\\cdot\\frac{\\sin(3x)}{3x} \\to 3\\cdot 1 = 3$$
+</div>
 </div>
 
 <div class="ex fade">
-  <div class="ex-hdr"><span>ES 04.1 — Limite puntuale di $f_n(x) = x/n$ su $\\mathbb{R}$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 1 — Limite notevole con $\\sin$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Trova il limite puntuale di $f_n(x) = x/n$ e stabilisci se la convergenza è uniforme su $\\mathbb{R}$ e su $[-M, M]$.</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin(5x)}{3x}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per ogni x fissato: x/n → 0. Limite puntuale f ≡ 0.</div>
-      $$\\lim_{n\\to\\infty} \\frac{x}{n} = 0 \\quad \\forall\\, x \\in \\mathbb{R}$$
-      <div class="sl">// Criterio del sup su R: sup_x |x/n| = +∞ → non uniforme su R</div>
-      <div class="sl">// Su [-M,M]: sup_{|x|≤M} |x/n| = M/n → 0 → uniforme ✓</div>
-      $$\\sup_{x \\in [-M,M]} \\left|\\frac{x}{n}\\right| = \\frac{M}{n} \\to 0 \\implies \\text{uniforme su } [-M,M].$$
+      $$\\frac{\\sin(5x)}{3x} = \\frac{5}{3}\\cdot\\frac{\\sin(5x)}{5x} \\to \\frac{5}{3}\\cdot 1 = \\frac{5}{3}$$
     </div>
   </div>
 </div>
 
 <div class="ex fade">
-  <div class="ex-hdr"><span>ES 04.2 — Perché $x^n$ non converge uniformemente su $[0,1)$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-hdr"><span>ES 2 — Limite con $e^x - 1$</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
   <div class="ex-body">
-    <div class="ex-prob"><p>Per $\\varepsilon = 0{,}01$, trova $N$ necessario perché $|x^n| < 0{,}01$ per $x = 0{,}8$ e per $x = 0{,}99$. Cosa si conclude?</p></div>
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 0}\\frac{e^{2x}-1}{x}$.</p></div>
     <div class="ex-sol">
-      <div class="sl">// Per x = 0.8: 0.8^n < 0.01 → n > log(0.01)/log(0.8) ≈ 20.6 → basta N = 21</div>
-      $$x = 0{,}8 \\implies N \\geq 21$$
-      <div class="sl">// Per x = 0.99: 0.99^n < 0.01 → n > log(0.01)/log(0.99) ≈ 458 → serve N = 459</div>
-      $$x = 0{,}99 \\implies N \\geq 459$$
-      <div class="sl">// Più x si avvicina a 1, più grande deve essere N: non esiste un N uniforme per tutti i punti</div>
-      $$\\sup_{x \\in [0,1)} x^n = 1 \\quad \\forall\\, n \\implies \\text{convergenza non uniforme su } [0,1).$$
+      $$\\frac{e^{2x}-1}{x} = 2\\cdot\\frac{e^{2x}-1}{2x} \\to 2\\cdot 1 = 2$$
     </div>
   </div>
 </div>
 
-<div class="quiz fade">
-  <div class="quiz-hdr"><span>QUIZ RIEPILOGO</span><span class="qscore" id="sc_ric">0/5</span></div>
-  <div class="quiz-body">
-    <div class="qq" data-ok="b" data-why="Il termine di una successione numerica è un numero; quello di una successione di funzioni è una funzione. Il limite è rispettivamente un numero o una funzione.">
-      <div class="qq-text">1. Qual è la differenza fondamentale tra successioni numeriche e di funzioni?</div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="qr1"> Non c'è differenza, la teoria è identica</label>
-        <label class="opt"><input type="radio" name="qr1"> Il termine generale e il limite sono funzioni, non numeri</label>
-        <label class="opt"><input type="radio" name="qr1"> Le successioni di funzioni non hanno limite</label>
-        <label class="opt"><input type="radio" name="qr1"> Le successioni numeriche non usano la definizione epsilon-N</label>
-      </div><div class="qfb"></div>
-    </div>
-    <div class="qq" data-ok="a" data-why="Per x in [0,1): x^n → 0 come r^n con r = x < 1. Per x = 1: 1^n = 1 per ogni n. Il limite è discontinuo in x=1.">
-      <div class="qq-text">2. Il limite puntuale di $f_n(x) = x^n$ su $[0,1]$ è:</div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="qr2"> $0$ su $[0,1)$ e $1$ in $x=1$</label>
-        <label class="opt"><input type="radio" name="qr2"> $0$ su tutto $[0,1]$</label>
-        <label class="opt"><input type="radio" name="qr2"> $1$ su tutto $[0,1]$</label>
-        <label class="opt"><input type="radio" name="qr2"> Non esiste</label>
-      </div><div class="qfb"></div>
-    </div>
-    <div class="qq" data-ok="c" data-why="Nella convergenza puntuale N dipende da epsilon e da x; nella uniforme dipende solo da epsilon, uguale per tutti i punti simultaneamente.">
-      <div class="qq-text">3. Cosa distingue la convergenza uniforme da quella puntuale?</div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="qr3"> La convergenza uniforme è più lenta</label>
-        <label class="opt"><input type="radio" name="qr3"> La convergenza puntuale preserva la continuità</label>
-        <label class="opt"><input type="radio" name="qr3"> Nella convergenza uniforme $N$ non dipende da $x$</label>
-        <label class="opt"><input type="radio" name="qr3"> Sono equivalenti su intervalli limitati</label>
-      </div><div class="qfb"></div>
-    </div>
-    <div class="qq" data-ok="b" data-why="Il criterio del sup: f_n → f uniformemente ↔ sup_x |f_n(x)-f(x)| → 0.">
-      <div class="qq-text">4. Il criterio pratico per verificare la convergenza uniforme è:</div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="qr4"> Verificare che $f_n(0) \\to f(0)$</label>
-        <label class="opt"><input type="radio" name="qr4"> Verificare che $\\sup_x |f_n(x) - f(x)| \\to 0$</label>
-        <label class="opt"><input type="radio" name="qr4"> Verificare che $f_n$ sia monotona</label>
-        <label class="opt"><input type="radio" name="qr4"> Verificare che $f_n$ sia continua</label>
-      </div><div class="qfb"></div>
-    </div>
-    <div class="qq" data-ok="c" data-why="f_n(x) = x/n: su [-M,M] il sup è M/n → 0, quindi converge uniformemente. Su R il sup è +∞, non converge uniformemente.">
-      <div class="qq-text">5. $f_n(x) = x/n$ converge uniformemente a $0$ su:</div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="qr5"> $\\mathbb{R}$</label>
-        <label class="opt"><input type="radio" name="qr5"> Solo nel punto $x = 0$</label>
-        <label class="opt"><input type="radio" name="qr5"> Ogni intervallo limitato $[-M, M]$</label>
-        <label class="opt"><input type="radio" name="qr5"> Nessun insieme</label>
-      </div><div class="qfb"></div>
+<div class="ex fade">
+  <div class="ex-hdr"><span>ES 3 — Forma $0/0$ con fattorizzazione</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-body">
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to 2}\\frac{x^2-4}{x-2}$.</p></div>
+    <div class="ex-sol">
+      <div class="sl">// Forma 0/0. Fattorizza il numeratore</div>
+      $$\\frac{x^2-4}{x-2} = \\frac{(x-2)(x+2)}{x-2} = x+2 \\to 4$$
     </div>
   </div>
-  <div class="quiz-foot"><button class="q-reset" onclick="resetQ(this)">Ricomincia</button><span class="q-info" id="info_ric"></span></div>
+</div>
+
+<div class="ex fade">
+  <div class="ex-hdr"><span>ES 4 — Gerarchia degli infiniti</span><button class="ex-btn" onclick="sol(this)">Mostra soluzione</button></div>
+  <div class="ex-body">
+    <div class="ex-prob"><p>Calcola $\\displaystyle\\lim_{x\\to+\\infty}\\frac{x^3}{e^x}$.</p></div>
+    <div class="ex-sol">
+      <div class="sl">// e^x cresce molto più velocemente di x³: gerarchia degli infiniti</div>
+      $$\\lim_{x\\to+\\infty}\\frac{x^3}{e^x} = 0$$
+      <div class="sl">// Formalmente: L'Hospital tre volte oppure confronto con la serie di e^x</div>
+    </div>
+  </div>
+</div>
+
+<div class="vf fade">
+  <div class="vf-hdr"><span>VERO O FALSO — Limiti notevoli</span><span class="vfscore" id="vfs05">0/4</span></div>
+  <div class="vf-body">
+    <div class="vq" data-ok="V" data-why="lim sin(x)/x = 1 per x→0 è il limite notevole trigonometrico fondamentale.">
+      <div class="vq-text">1. $\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sin x}{x} = 1$.</div>
+      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
+    </div>
+    <div class="vq" data-ok="V" data-why="(e^x-1)/x → 1 per x→0: è il limite notevole esponenziale fondamentale, equivalente alla definizione di e come base del logaritmo naturale.">
+      <div class="vq-text">2. $\\displaystyle\\lim_{x\\to 0}\\dfrac{e^x-1}{x} = 1$.</div>
+      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
+    </div>
+    <div class="vq" data-ok="F" data-why="Falso: lim sin(3x)/x = 3, non 1. Bisogna ricondurre alla forma standard: sin(3x)/(3x)·3 → 1·3 = 3.">
+      <div class="vq-text">3. $\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sin(3x)}{x} = 1$.</div>
+      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
+    </div>
+    <div class="vq" data-ok="V" data-why="Gerarchia degli infiniti: e^x domina qualsiasi potenza x^α per x→+∞. Quindi x^3/e^x → 0.">
+      <div class="vq-text">4. $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{x^3}{e^x} = 0$.</div>
+      <div class="vf-btns"><button class="vf-btn" onclick="vfAns(this,'V')">Vero</button><button class="vf-btn" onclick="vfAns(this,'F')">Falso</button></div><div class="vq-fb"></div>
+    </div>
+  </div>
+  <div class="vf-foot"><button class="vf-reset" onclick="resetVF(this)">Ricomincia</button><span class="vf-info" id="vfi05"></span></div>
 </div>`
     }
-
   ],
 
   disclaimer: `
