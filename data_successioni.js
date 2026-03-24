@@ -4,8 +4,8 @@ const LESSON_DATA = {
   meta: {
     file:  'succ_funzioni.html',
     num:   'LEZIONE 04',
-    title: 'Successioni numeriche<br>e successioni di funzioni',
-    sub:   'Successioni numeriche · Limiti di successioni · Successioni di funzioni · Limiti di successioni di funzioni'
+    title: 'Successioni numeriche<br>e limiti notevoli',
+    sub:   'Successioni numeriche · Limiti di successioni · Limiti notevoli · Da successioni a funzioni · Limiti notevoli di funzioni'
   },
 
   sections: [
